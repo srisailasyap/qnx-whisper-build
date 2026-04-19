@@ -117,11 +117,3 @@ cd /data/home/qnxuser
 - `aarch64le`
 - `x86_64`
 
-## Building a different whisper.cpp version
-
-To rebuild against a different upstream tag:
-
-1. Check out the desired tag in a fresh whisper.cpp clone.
-2. Apply `whisper.cpp.patch` from this repo (`git apply whisper.cpp.patch`) and resolve any conflicts.
-3. Regenerate the patch: `git diff > whisper.cpp.patch`.
-4. Update the tag reference in this README.
