@@ -6,20 +6,6 @@ Supported models: `tiny`, `base`, `small`, `medium`, `large-v1/v2/v3`, plus all 
 
 The latest release was tested with **whisper.cpp `v1.8.4`** on a Raspberry Pi 5 (QNX 8.0, `aarch64le`) and `x86_64` QNX targets, using the `ggml-tiny.en` and `ggml-base.en` models.
 
-QNX-specific changes (committed on top of upstream v1.8.4):
-- ggml CPU detection via QNX `syspage` (SIMD feature probing)
-- `aarch64le` / `nto-aarch64-le` recognized by the ggml CMake regex
-- `getcwd()` fallback in `ggml-backend-reg.cpp` (QNX lacks `std::filesystem`)
-- `mmap`-based Whisper model loader for faster load times on QNX filesystems
-
-| Item | Value |
-|---|---|
-| whisper.cpp tag | **`v1.8.4`** |
-| Source fork (QNX patches applied) | [srisailasyap/whisper.cpp @ qnx-v1.8.4](https://github.com/srisailasyap/whisper.cpp/tree/qnx-v1.8.4) |
-| QNX SDP | 8.0 |
-| Tested targets | Raspberry Pi 5 (`nto-aarch64-le`), `nto-x86_64-o` |
-
-> **NOTE:** QNX ports are only supported from a Linux host operating system.
 
 Use `$(nproc)` instead of `4` after `JLEVEL=` and `-j` to use the maximum number of cores. 32GB of RAM is recommended when using `JLEVEL=$(nproc)` or `-j$(nproc)`.
 
